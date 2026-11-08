@@ -126,3 +126,4 @@ SwarnaTrack includes an **Instant Role Switcher** in the top navigation bar. You
 ### Flow 6: Tally XML & Stock CSV Export (`/`)
 1. On the main dashboard, click **Export Tally XML** or **Export CSV**.
 2. The system generates an official Tally Prime / ERP 9 XML envelope (`<ENVELOPE><TALLYREQUEST>...`) ready for import into Tally company accounts.
+

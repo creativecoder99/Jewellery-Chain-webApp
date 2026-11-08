@@ -13,3 +13,4 @@ with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
             print(f"Warning: {file} not found!")
 
 print(f"Created {zip_filename} with size: {os.path.getsize(zip_filename)} bytes")
+

@@ -224,3 +224,4 @@ The math engine, OCR heuristics, anomaly drift detector, and statutory validatio
 - **Mathematical Accuracy**: Matches sample rows `TX-30411` (120g @ 91.6% = 109.920g fine), `TX-30437` (112.450g @ 91.6% = 103.004g fine, balance 6.916g), and `TX-30438` (3.300g @ 91.6% = 3.023g fine, balance 3.893g).
 - **Statutory Rules**: Confirms PAN requirement triggers at $\ge \text{₹2,00,000}$ and cash is blocked.
 - **Production Build**: Verified with clean Next.js 14 production compilation (`npm run build`).
+

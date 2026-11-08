@@ -98,3 +98,4 @@ Use the **Role Selector** in the top navigation bar to test different personas i
 - **`TDD.docx` / `TDD.md`**: Complete Technical Design Document covering architecture, data model, AI vision & anomaly models, UI decisions, labeled assumptions, and scope trade-offs.
 - **`deployment.md`**: Step-by-step local run instructions, environment variable names, and reviewer demo credentials.
 - **`submission.zip`**: Archive containing `TDD.docx` and `deployment.md` ready for upload.
+
