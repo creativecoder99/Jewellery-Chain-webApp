@@ -146,3 +146,4 @@ export const KarigarMasterSchema = z.object({
     casting: z.number().min(0).max(10),
   }),
 });
+

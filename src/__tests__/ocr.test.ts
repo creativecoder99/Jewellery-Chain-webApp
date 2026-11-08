@@ -27,3 +27,4 @@ describe("Scale OCR and Karat Meter Parser", () => {
     expect(result.purityPct).toBe(91.6);
   });
 });
+

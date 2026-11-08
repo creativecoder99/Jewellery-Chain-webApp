@@ -98,3 +98,4 @@ describe("Exact 3-Decimal Fine Gold Math Engine", () => {
     expect(highValuePurchase.cashLimitExceeded).toBe(true);
   });
 });
+

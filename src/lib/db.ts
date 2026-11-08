@@ -653,3 +653,4 @@ class WorkshopDatabase {
 // Global singleton instance
 const globalDb = new WorkshopDatabase();
 export default globalDb;
+

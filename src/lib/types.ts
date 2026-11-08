@@ -159,3 +159,4 @@ export interface ScaleOcrResult {
   timestamp: string;
   suggestedAction: "match" | "review_clerk" | "rejected";
 }
+

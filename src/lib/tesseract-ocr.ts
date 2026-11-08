@@ -151,3 +151,4 @@ export async function analyzeScaleImage(
     suggestedAction: "review_clerk",
   };
 }
+
