@@ -7,6 +7,7 @@ Company A, Coimbatore — Jewellery Workshop Gold Custody, Wastage Control & Old
 ## 1. Project Overview
 
 - **GitHub Repository**: [https://github.com/creativecoder99/Jewellery-Chain-webApp.git](https://github.com/creativecoder99/Jewellery-Chain-webApp.git)
+- **Live Hosted Application**: [https://jewellery-seven-alpha.vercel.app/](https://jewellery-seven-alpha.vercel.app/)
 - **Tech Stack**: Next.js 14, React 18, TypeScript, Tailwind CSS, Zod Validation, Tesseract.js OCR, Vitest.
 - **Precision**: Exact 3-decimal fine gold calculations (`0.001g`), 2-decimal purity (`0.01%`), 2-decimal currency (`₹0.01`).
 

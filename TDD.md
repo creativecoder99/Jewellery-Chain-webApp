@@ -2,6 +2,7 @@
 ## SwarnaTrack: Workshop Gold Custody, Wastage Control & Compliance Platform
 
 **GitHub Repository**: [https://github.com/creativecoder99/Jewellery-Chain-webApp.git](https://github.com/creativecoder99/Jewellery-Chain-webApp.git)  
+**Live Hosted Application**: [https://jewellery-seven-alpha.vercel.app/](https://jewellery-seven-alpha.vercel.app/)  
 **Client**: Company A, Coimbatore — Jewellery Chain (5 Showrooms, Central Workshop, 40 Karigars, 180 Staff, ₹220–260 Crore Revenue)  
 **Target Impact**: Reduce unexplained manufacturing gold loss from 0.40% to <0.15% (saving ₹1.2 Crore/yr); collapse month-end reconciliation from 3 days to 0.5 days (saving ₹5.4 Lakh/yr).
 

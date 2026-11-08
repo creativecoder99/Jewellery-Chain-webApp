@@ -3,6 +3,7 @@
 
 **Client**: Company A, Coimbatore — Jewellery Chain (5 Showrooms, Central Workshop, 40 Karigars, 180 Staff, ₹220–260 Crore Annual Revenue)  
 **GitHub Repository**: [https://github.com/creativecoder99/Jewellery-Chain-webApp.git](https://github.com/creativecoder99/Jewellery-Chain-webApp.git)  
+**Live Hosted Application**: [https://jewellery-seven-alpha.vercel.app/](https://jewellery-seven-alpha.vercel.app/)  
 **Primary Impact**:
 - Unexplained gold loss reduced from **0.40%** to **<0.15%** (saving **₹1.20 Crore / year** in unaccounted gold leakage)
 - Month-end reconciliation collapsed from **6 people × 3 days** (216 person-days) to **half a day** (saving **₹5.40 Lakh / year** in accounting labor)
