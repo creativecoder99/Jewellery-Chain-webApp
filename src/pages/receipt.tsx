@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Shell from "@/components/layout/Shell";
 import ScalePhotoReader from "@/components/scale-reader/ScalePhotoReader";
 import DigitalSlipModal from "@/components/slips/DigitalSlipModal";
+import GoldYieldBar from "@/components/common/GoldYieldBar";
 import { Karigar, JobOrder, Transaction } from "@/lib/types";
 import {
   calculateFineWeight,
@@ -477,6 +478,16 @@ export default function ReceiptPage() {
                   )}
                 </div>
               </div>
+
+              {/* Physical Gold Yield Distribution Segmented Bar */}
+              <GoldYieldBar
+                issuedFineG={settlementMath.issuedFineG}
+                finishedFineG={settlementMath.returnedPiecesFineG}
+                scrapFineG={settlementMath.returnedScrapFineG}
+                filingsFineG={settlementMath.returnedFilingsFineG}
+                allowedWastageFineG={settlementMath.allowedWastageFineG}
+                unexplainedLossFineG={settlementMath.unexplainedLossFineG}
+              />
             </div>
           )}
 

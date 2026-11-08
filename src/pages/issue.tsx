@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Shell from "@/components/layout/Shell";
 import ScalePhotoReader from "@/components/scale-reader/ScalePhotoReader";
 import DigitalSlipModal from "@/components/slips/DigitalSlipModal";
+import AlloyCalculatorModal from "@/components/workshop/AlloyCalculatorModal";
 import { Karigar, ItemCategory, Transaction } from "@/lib/types";
 import { calculateFineWeight, calculateAllowedWastage, formatWeight, formatPurity } from "@/lib/math";
 import { useApp } from "@/context/AppContext";
@@ -29,6 +30,7 @@ export default function IssueGoldPage() {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [generatedTxn, setGeneratedTxn] = useState<Transaction | null>(null);
+  const [showAlloyCalc, setShowAlloyCalc] = useState<boolean>(false);
 
   useEffect(() => {
     fetch("/api/karigars")
@@ -139,6 +141,15 @@ export default function IssueGoldPage() {
     <Shell
       title="Gold Issue Entry & Slip Dispatch"
       subtitle="Vault pure bullion issuance with side-by-side scale reading verification"
+      actions={
+        <button
+          type="button"
+          onClick={() => setShowAlloyCalc(true)}
+          className="px-3.5 py-1.5 text-xs font-semibold rounded border border-border bg-surface hover:bg-surface-subtle text-ink-primary shadow-sm flex items-center gap-1.5"
+        >
+          <span>⚖️</span> 24K Dilution &amp; Alloy Calculator
+        </button>
+      }
     >
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Error alert */}
@@ -391,6 +402,17 @@ export default function IssueGoldPage() {
         onClose={() => {
           setGeneratedTxn(null);
           router.push("/");
+        }}
+      />
+
+      {/* Alloy & 24K Dilution Calculator Modal */}
+      <AlloyCalculatorModal
+        isOpen={showAlloyCalc}
+        onClose={() => setShowAlloyCalc(false)}
+        onApplyToIssue={(gross, purity, mixNotes) => {
+          setGrossWeightG(gross);
+          setPurityPct(purity);
+          setNotes((prev) => (prev ? `${prev} | ${mixNotes}` : mixNotes));
         }}
       />
     </Shell>

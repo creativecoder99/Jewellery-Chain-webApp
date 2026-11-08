@@ -4,6 +4,7 @@ import { Karigar, Transaction, JobOrder } from "@/lib/types";
 import { formatWeight, formatPurity } from "@/lib/math";
 import { useApp } from "@/context/AppContext";
 import DigitalSlipModal from "@/components/slips/DigitalSlipModal";
+import GoldYieldBar from "@/components/common/GoldYieldBar";
 
 export default function KarigarPortalPage() {
   const { lang, setLang, t, selectedKarigarId, setSelectedKarigarId } = useApp();
@@ -309,6 +310,18 @@ export default function KarigarPortalPage() {
                       </div>
                     ))}
                   </div>
+                )}
+
+                {/* Visual Gold Yield Bar */}
+                {job.totalReturnedFineG > 0 && (
+                  <GoldYieldBar
+                    issuedFineG={job.issuedFineG}
+                    finishedFineG={job.receivedPieces.reduce((acc, p) => acc + p.fineWeightG, 0)}
+                    scrapFineG={job.receivedScrapFineG}
+                    filingsFineG={job.receivedFilingsFineG}
+                    allowedWastageFineG={job.allowedLossFineG}
+                    unexplainedLossFineG={job.unexplainedLossFineG}
+                  />
                 )}
               </div>
             ))}

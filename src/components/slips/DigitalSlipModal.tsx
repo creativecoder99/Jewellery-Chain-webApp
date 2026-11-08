@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Transaction } from "@/lib/types";
 import { formatWeight, formatPurity } from "@/lib/math";
 import { useApp } from "@/context/AppContext";
@@ -10,11 +10,37 @@ interface DigitalSlipModalProps {
 
 export default function DigitalSlipModal({ transaction, onClose }: DigitalSlipModalProps) {
   const { lang, t } = useApp();
+  const [copied, setCopied] = useState<boolean>(false);
 
   if (!transaction) return null;
 
   const isIssue = transaction.type === "issue";
   const title = isIssue ? t.slips.issueSlip : t.slips.receiptSlip;
+
+  const formattedSlipText = `*COMPANY A JEWELLERY — ${title.toUpperCase()}*
+Slip No: ${transaction.id} | Job: ${transaction.jobNumber || "N/A"}
+Date: ${new Date(transaction.date).toLocaleString("en-IN")}
+Karigar: ${transaction.karigarName}
+Category: ${transaction.itemCategory || transaction.type}
+------------------------------
+Gross Weight: ${formatWeight(transaction.grossWeightG)} g
+Purity: ${formatPurity(transaction.purityPct)} %
+Fine Gold Content: ${formatWeight(transaction.fineWeightG)} g fine
+${transaction.allowedWastagePct ? `Allowed Wastage: ${formatPurity(transaction.allowedWastagePct)} %\n` : ""}${transaction.huid ? `BIS HUID: ${transaction.huid}\n` : ""}------------------------------
+*Karigar Running Balance: ${formatWeight(transaction.fineBalanceAfterG)} g fine*
+Scale Status: Verified by Workshop Clerk ✓
+Coimbatore Workshop Custody`;
+
+  const handleCopyText = () => {
+    navigator.clipboard.writeText(formattedSlipText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleShareWhatsApp = () => {
+    const encoded = encodeURIComponent(formattedSlipText);
+    window.open(`https://wa.me/?text=${encoded}`, "_blank");
+  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/50 flex items-center justify-center p-4">
@@ -27,8 +53,15 @@ export default function DigitalSlipModal({ transaction, onClose }: DigitalSlipMo
           </div>
           <div className="flex items-center gap-2">
             <button
+              onClick={handleShareWhatsApp}
+              className="px-2.5 py-1 text-xs font-semibold rounded bg-[#25D366] text-white hover:bg-[#1EBE5D] transition-colors flex items-center gap-1 shadow-sm"
+              title="Share slip directly with Karigar on WhatsApp"
+            >
+              <span>💬</span> WhatsApp
+            </button>
+            <button
               onClick={() => window.print()}
-              className="px-3 py-1 text-xs font-semibold rounded bg-accent text-white hover:bg-accent-hover transition-colors"
+              className="px-3 py-1 text-xs font-semibold rounded bg-accent text-white hover:bg-accent-hover transition-colors shadow-sm"
             >
               Print Slip
             </button>
@@ -179,7 +212,14 @@ export default function DigitalSlipModal({ transaction, onClose }: DigitalSlipMo
         </div>
 
         {/* Modal Footer */}
-        <div className="px-6 py-3 bg-[#FAF8F3] border-t border-border flex justify-end gap-3 no-print">
+        <div className="px-6 py-3 bg-[#FAF8F3] border-t border-border flex items-center justify-between no-print">
+          <button
+            onClick={handleCopyText}
+            className="text-xs text-ink-secondary hover:text-ink-primary underline flex items-center gap-1"
+          >
+            {copied ? "✓ Copied to Clipboard" : "📋 Copy Slip Text"}
+          </button>
+
           <button
             onClick={onClose}
             className="px-4 py-1.5 text-xs font-medium rounded border border-border hover:bg-surface-subtle text-ink-primary"
@@ -191,4 +231,3 @@ export default function DigitalSlipModal({ transaction, onClose }: DigitalSlipMo
     </div>
   );
 }
-

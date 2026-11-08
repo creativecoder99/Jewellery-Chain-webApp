@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Shell from "@/components/layout/Shell";
+import SavingsTrajectoryChart from "@/components/analytics/SavingsTrajectoryChart";
 import { LossAlertItem } from "@/lib/types";
 import { formatWeight, formatCurrency } from "@/lib/math";
 import { useApp } from "@/context/AppContext";
@@ -108,6 +109,9 @@ export default function LossAlertsPage() {
             exhaust filters, casting sprues, and annealing chemical baths.
           </p>
         </div>
+
+        {/* 6-Month Trajectory & Savings Chart */}
+        <SavingsTrajectoryChart />
 
         {/* Open Review Items */}
         <div className="space-y-4">

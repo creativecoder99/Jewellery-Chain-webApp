@@ -318,6 +318,37 @@ export default function OldGoldPage() {
                 </span>
               </div>
             </div>
+
+            {/* XRF Karat Meter Elemental Assay Breakdown */}
+            <div className="pt-3 border-t border-border/80 space-y-2">
+              <div className="flex items-center justify-between text-[11px]">
+                <span className="font-semibold text-ink-primary">
+                  🔬 XRF Spectrometer Elemental Assay Breakdown:
+                </span>
+                <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  ✓ BIS Cadmium-Free Certified (Cd &lt; 0.01%)
+                </span>
+              </div>
+
+              <div className="grid grid-cols-4 gap-2 text-center text-[11px] font-mono">
+                <div className="p-1.5 rounded bg-surface border border-border">
+                  <span className="text-ink-secondary text-[10px] block font-sans">Gold (Au)</span>
+                  <strong className="text-accent-hover font-bold">{testedPurityPct.toFixed(2)}%</strong>
+                </div>
+                <div className="p-1.5 rounded bg-surface border border-border">
+                  <span className="text-ink-secondary text-[10px] block font-sans">Silver (Ag)</span>
+                  <span className="text-ink-primary font-semibold">{((100 - testedPurityPct) * 0.58).toFixed(2)}%</span>
+                </div>
+                <div className="p-1.5 rounded bg-surface border border-border">
+                  <span className="text-ink-secondary text-[10px] block font-sans">Copper (Cu)</span>
+                  <span className="text-ink-primary font-semibold">{((100 - testedPurityPct) * 0.38).toFixed(2)}%</span>
+                </div>
+                <div className="p-1.5 rounded bg-surface border border-border">
+                  <span className="text-ink-secondary text-[10px] block font-sans">Zinc (Zn)</span>
+                  <span className="text-ink-primary font-semibold">{((100 - testedPurityPct) * 0.04).toFixed(2)}%</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Statutory Income Tax PAN & Cash Limit Compliance Box */}

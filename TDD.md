@@ -202,6 +202,14 @@ In strict compliance with the client design instructions:
 7. **Karigar Mobile Portal (`/karigar-portal`)**: Vertical card layout optimized for 375px/414px smartphone screens with bilingual Tamil toggle.
 8. **Month-End Reconciliation (`/reconciliation`)**: Automated gold balance sheet comparing theoretical vs physical counts with Tally XML export and digital audit sign-off.
 
+### 6.3 Operational UX Enhancements Added
+1. **24K Dilution & Alloy Mixing Calculator**: Built-in crucible recipe calculator computing exact copper and silver additions to dilute 24K pure bullion down to 22K (916 standard) or enrich lower-karat scrap, with 1-click application to the issue form.
+2. **Physical Gold Yield Distribution Bar**: Segmented proportional yield visualizer on receipt and job orders clarifying where every milligram of issued gold went (Finished jewellery, Scrap trimmings, Bench filings, and Agreed allowance).
+3. **End-of-Day (EOD) Safe Locking Ceremony**: Structured 3-step daily handover protocol verifying artisan slips, physical electronic safe scale counts, and locking daily Tally vouchers to eliminate month-end panic.
+4. **WhatsApp & SMS Digital Slip Dispatch**: 1-click sharing of pre-formatted bilingual issue/receipt vouchers directly to karigars on WhatsApp.
+5. **XRF Elemental Assay & BIS Cadmium-Free Check**: Elemental composition breakdown (Au, Ag, Cu, Zn) in Old Gold intake with automatic Cadmium (Cd) safety compliance certification.
+6. **Executive Loss Trajectory & Cumulative Rupee Savings Chart**: 6-month visual trajectory tracking loss reduction from 0.40% baseline down to 0.12% with live ₹71.25 Lakhs cumulative savings indicator.
+
 ---
 
 ## 7. Scope Decisions: What Was Cut & What to Do Next

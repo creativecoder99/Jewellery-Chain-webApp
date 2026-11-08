@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Shell from "@/components/layout/Shell";
+import SavingsTrajectoryChart from "@/components/analytics/SavingsTrajectoryChart";
+import EodLockModal from "@/components/workshop/EodLockModal";
 import { StockSummary, Transaction } from "@/lib/types";
 import { formatWeight, formatCurrency } from "@/lib/math";
 import { useApp } from "@/context/AppContext";
@@ -9,6 +11,7 @@ export default function ReconciliationPage() {
   const [stock, setStock] = useState<StockSummary | null>(null);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [signedOff, setSignedOff] = useState<boolean>(false);
+  const [showEodModal, setShowEodModal] = useState<boolean>(false);
 
   useEffect(() => {
     Promise.all([fetch("/api/stock"), fetch("/api/transactions")]).then(
@@ -37,6 +40,12 @@ export default function ReconciliationPage() {
       subtitle="Automated gold balance sheet replacing 6 people × 3 days manual paper calculation"
       actions={
         <div className="flex items-center gap-2">
+          <button
+            onClick={() => setShowEodModal(true)}
+            className="px-3.5 py-1.5 text-xs font-semibold rounded bg-[#1E5E3A] text-white hover:bg-[#16472C] transition-colors shadow-sm flex items-center gap-1.5"
+          >
+            <span>🔐</span> End-of-Day Vault Lock
+          </button>
           <a
             href="/api/export?format=xml"
             download
@@ -103,6 +112,9 @@ export default function ReconciliationPage() {
             </div>
           </div>
         </div>
+
+        {/* 6-Month Loss Reduction Trajectory */}
+        <SavingsTrajectoryChart />
 
         {/* Master Gold Reconciliation Balance Sheet */}
         <div className="bg-surface border border-border rounded-lg shadow-sm overflow-hidden">
@@ -237,6 +249,13 @@ export default function ReconciliationPage() {
           </div>
         </div>
       </div>
+
+      {/* End-of-Day Locking Protocol Modal */}
+      <EodLockModal
+        isOpen={showEodModal}
+        onClose={() => setShowEodModal(false)}
+        stock={stock}
+      />
     </Shell>
   );
 }
